@@ -11,3 +11,5 @@ bowtie2 --very-sensitive -p "$((THREADS-4))" -x "$RUN/catalogue_index/reference"
     -1 "${R1S[$i]}" -2 "${R2S[$i]}" 2> "$LOG_DIR/catalogue_${sample}.bowtie2.log" \
     | samtools sort -@ 2 -m 2G -T "$bam.tmp" -o "$bam" -
 samtools index -@ 2 "$bam"
+python3 "$SCRIPT_ROOT/read_recruitment.py" save-input \
+    "$LOG_DIR/catalogue_${sample}.bowtie2.log" "$CATALOGUE_BAMS/$sample.input_reads.json"

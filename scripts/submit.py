@@ -76,6 +76,9 @@ def create_plan(stage, groups, samples, map_concurrency, bin_concurrency):
     if stage in ("all", "quantify", "tables"):
         deps = ("catalogue_mapping", "dram") if stage == "all" else ("catalogue_mapping",) if stage == "quantify" else ()
         add("tables", "12_tables.sh", "tables", deps)
+    if stage in ("all", "quantify", "recruitment"):
+        deps = ("catalogue_mapping",) if stage != "recruitment" else ()
+        add("recruitment", "13_read_recruitment.sh", "recruitment", deps)
     return plan
 
 
@@ -83,7 +86,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input", type=Path, required=True, help="Clean-read directory, or samples.tsv")
     parser.add_argument("--strategy", choices=("auto", "joint", "grouped"), default="auto")
-    parser.add_argument("--stage", default="all", choices=("all", "assembly", "assembly_continue", "binning", "quality", "catalog", "annotate", "taxonomy", "dram", "distill", "quantify", "tables"))
+    parser.add_argument("--stage", default="all", choices=("all", "assembly", "assembly_continue", "binning", "quality", "catalog", "annotate", "taxonomy", "dram", "distill", "quantify", "tables", "recruitment"))
     parser.add_argument("--config", type=Path, default=Path(__file__).resolve().parents[1]/"config.json")
     parser.add_argument("--run-dir", type=Path)
     parser.add_argument("--assembly-root", type=Path)
@@ -133,7 +136,8 @@ def main():
         writer = csv.writer(handle, delimiter="\t", lineterminator="\n")
         writer.writerow(["stage", "job_id", "dependencies"])
         for number, job in enumerate(plan, 1):
-            cpus, memory, wall = config["resources"][job["resource"]]
+            resources = config["resources"]
+            cpus, memory, wall = resources.get("recruitment", [8, "8G", "24:00:00"]) if job["resource"] == "recruitment" else resources[job["resource"]]
             command = ["sbatch", "--parsable", "--nodes=1", "--ntasks=1",
                        f"--cpus-per-task={cpus}", f"--mem={memory}", f"--time={wall}",
                        f"--job-name=mag_{job['name']}", f"--output={log}/{job['name']}_%A_%a.out",

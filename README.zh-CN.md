@@ -166,6 +166,25 @@ bash scripts/run_joint.sh /path/to/clean_data --stage tables \
 
 ## 主要输出表
 
+新增 `13_read_recruitment.sh`：`all` 和 `quantify` 自动计算，不依赖 DRAM 出表。
+结果为 `read_recruitment/sample_MAG_read_recruitment.tsv`，其中
+`MAG_mapped_percent` 表示落在最终 MAG 目录 contig 上的 primary mapped reads
+占全部输入 clean reads 的百分比；`MAG_mapped_percent_MAPQ20` 加上 MAPQ≥20 筛选。
+R1/R2 各算一条，分母包含未比对 reads，分子排除 secondary/supplementary。
+统计全部保留 MAG，不使用 CoverM 的样本内检出阈值；该比例不代表细胞比例，也不直接用于校正 KO 丰度。
+
+已有结果只补这一项（分组路线改用 `run_grouped.sh`）：
+
+```bash
+bash scripts/run_joint.sh /path/to/clean_data --stage recruitment \
+  --run-dir /path/to/existing_run --submit
+```
+
+可用 `--bam-dir`、`--analysis-dir` 指向旧结果。新比对会在 BAM 旁保存
+`<sample>.input_reads.json` 输入计数，日志仍单独保存；旧 BAM 没有该计数时，
+仅此阶段自动统计输入 FASTQ 的记录数（四行一条，可 gzip 压缩）。
+因此即使 BAM 用了 `--no-unal`，分母也不会缩小；输入 reads 必须与 BAM 来源相同。
+
 - `sample_x_MAG_relative_within_catalogue.tsv`：样本 × MAG，目录内相对丰度。
 - `sample_x_MAG_mean_coverage.tsv`、`sample_x_MAG_covered_fraction.tsv`：覆盖深度、广度。
 - `sample_x_gene_counts.tsv`、`sample_x_gene_TPM_within_catalogue.tsv`：样本 × 基因。

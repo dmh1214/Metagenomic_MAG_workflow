@@ -15,6 +15,7 @@ import helpers
 import submit
 import table_functions as tables
 import collect_dram_annotations as collector
+import read_recruitment as recruitment
 
 
 class WorkflowTests(unittest.TestCase):
@@ -61,6 +62,7 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(jobs["binning"]["array"], "1-9%3")
         self.assertEqual(jobs["catalogue_mapping"]["array"], "1-75%4")
         self.assertEqual(set(jobs["tables"]["dependencies"]), {"dram", "catalogue_mapping"})
+        self.assertEqual(jobs["recruitment"]["dependencies"], ["catalogue_mapping"])
         names = set()
         for job in plan:
             self.assertTrue(set(job["dependencies"]) <= names)
@@ -69,6 +71,8 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual([j["name"] for j in submit.create_plan("dram", 1, 20, 4, 3)], ["dram"])
         quantify = submit.create_plan("quantify", 1, 20, 4, 3)
         self.assertNotIn("assembly", {j["name"] for j in quantify})
+        self.assertIn("recruitment", {j["name"] for j in quantify})
+        self.assertEqual([j["name"] for j in submit.create_plan("recruitment", 1, 20, 4, 3)], ["recruitment"])
 
     def test_submit_with_fake_slurm(self):
         reads = self.root/"reads"
@@ -88,11 +92,54 @@ class WorkflowTests(unittest.TestCase):
         with patch.object(submit, "__file__", str(fake_module)), patch.object(sys, "argv", arguments), \
                 patch.object(submit.subprocess, "check_output", side_effect=fake_sbatch), contextlib.redirect_stdout(io.StringIO()):
             submit.main()
-        self.assertEqual(len(commands), 13)
+        self.assertEqual(len(commands), 14)
         self.assertFalse(any(arg in ("--partition=", "--qos=", "--account=") for command in commands for arg in command))
-        dependency = [arg for arg in commands[-1] if arg.startswith("--dependency=")][0]
+        dependency = [arg for arg in commands[-2] if arg.startswith("--dependency=")][0]
         self.assertIn("7012", dependency)
         self.assertIn("7009", dependency)
+        self.assertIn("--dependency=afterok:7012", commands[-1])
+
+    def test_recruitment_log_denominator(self):
+        log = self.root/'mapping.log'
+        log.write_text('1,000 reads; of these:\n  1,000 (100.00%) were paired; of these:\n')
+        self.assertEqual(recruitment.log_reads(log), 2000)
+        log.write_text('100 reads; of these:\n  90 (90.00%) were paired; of these:\n')
+        with self.assertRaises(ValueError):
+            recruitment.log_reads(log)
+
+    def test_recruitment_with_and_without_metadata(self):
+        fasta = self.root/'MAGs'
+        fasta.mkdir()
+        (fasta/'M.fa').write_text('>selected\nACGT\n')
+        bams = self.root/'bam'
+        bams.mkdir()
+        for end in (1, 2):
+            (self.root/f'R{end}.fq').write_text('@a\nAC\n+\nII\n@b\nAC\n+\nII\n')
+        samples = self.root/'samples.tsv'
+        helpers.write_table(samples, ['sample', 'r1', 'r2', 'group'],
+                            [('S', self.root/'R1.fq', self.root/'R2.fq', 'treatment')])
+        def fake(*args):
+            if '-H' in args:
+                return '@SQ\tSN:selected\tLN:4\n@SQ\tSN:unselected\tLN:10\n'
+            if '--version' in args:
+                return 'samtools mock\n'
+            self.assertIn(2308, args)
+            bed = Path(args[args.index('-L')+1])
+            self.assertEqual(bed.read_text(), 'selected\t0\t4\n')
+            return '2' if '-q' in args else '3'
+        for mode in ('fastq', 'metadata'):
+            if mode == 'metadata':
+                (bams/'S.input_reads.json').write_text(json.dumps({'total_clean_reads': 4}))
+                # The metadata path must not reread FASTQs.
+                (self.root/'R1.fq').unlink()
+                (self.root/'R2.fq').unlink()
+            out = self.root/mode
+            with patch.object(recruitment, 'command', side_effect=fake), contextlib.redirect_stdout(io.StringIO()):
+                recruitment.recruit(samples, bams, fasta, out, 2)
+            row = helpers.read_table(out/'sample_MAG_read_recruitment.tsv')[0]
+            self.assertEqual(float(row['MAG_mapped_percent']), 75)
+            self.assertEqual(float(row['MAG_mapped_percent_MAPQ20']), 50)
+            self.assertEqual(row['denominator_source'], 'clean_FASTQ_records' if mode == 'fastq' else 'Bowtie2_input_summary')
 
     def test_catalogue_and_abundance(self):
         run = self.root/"run"

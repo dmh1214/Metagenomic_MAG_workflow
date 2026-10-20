@@ -76,6 +76,7 @@ bash scripts/run_joint.sh /path/to/clean_data --stage binning --submit
 | `distill` | DRAM metabolic summaries |
 | `quantify` | Index final MAGs, map all samples, produce abundance matrices |
 | `tables` | Quantify from existing annotations and compatible BAMs |
+| `recruitment` | Calculate the percentage of all clean reads recruited to the final MAG catalogue |
 
 Within a section, Slurm `afterok` dependencies connect jobs automatically. Between sections, wait for success or pass `--after JOB_ID`. Completed DRAM/distill subgroups with this workflow's `.done` markers are retained.
 
@@ -93,6 +94,24 @@ Main matrices in `tables/`:
 
 Feature-by-sample versions, gene coordinates, gene–KO–MAG links, quality information, and provenance are also retained. Logs are stored under `logs/<dataset>/<submission>/`; script/configuration snapshots are stored under `scripts/.runs/`.
 
+`read_recruitment/sample_MAG_read_recruitment.tsv` reports `MAG_mapped_percent` and
+`MAG_mapped_percent_MAPQ20`: the percentage of **all input clean read ends** mapped
+to the final catalogue, before and after a MAPQ >=20 filter. This QC runs automatically
+with `all` and `quantify`, independently of DRAM and the abundance tables. To add it to
+an existing run without repeating assembly, annotation or mapping:
+
+```bash
+bash scripts/run_joint.sh /path/to/clean_data --stage recruitment \
+  --run-dir /path/to/existing_run --submit
+```
+
+Use `run_grouped.sh` for a grouped run; `--bam-dir` and `--analysis-dir` can point to
+compatible existing results. Mapping saves input counts as `<sample>.input_reads.json`
+beside BAMs; original Bowtie2 logs remain in `logs/`. If these counts are absent, only
+this QC stage counts records in the input FASTQs (four-line FASTQ format, optionally
+gzip-compressed). Thus BAMs made with `--no-unal` do not shrink the denominator.
+The BAMs must come from these same input reads and match the retained contigs.
+
 Existing results can be supplied with `--assembly-root`, `--analysis-dir`, and `--bam-dir`. See the [Chinese guide](README.zh-CN.md#复用已有结果) for examples. BAMs must match the reference sequences and gene coordinates exactly; separate-assembly BAMs are not interchangeable with final-catalogue BAMs.
 
 ## Environment
@@ -109,6 +128,7 @@ The example contains module names from the source workflow, not a universal inst
 - Grouped coassembly uses 95% ANI dereplication; joint coassembly retains the original non-dereplicated route.
 - Final contigs are namespaced before annotation, preventing cross-assembly ID collisions. All samples are mapped to the same final catalogue.
 - MAG relative abundance is normalized **within the retained catalogue**, not the entire community or soil mass.
+- Recruitment divides primary mapped read ends on catalogue contigs by all input clean read ends. R1/R2 each count once; unmapped, secondary and supplementary alignments are excluded from the numerator. All retained MAGs are included, without CoverM's sample-level detection threshold. Recruitment depends on the mapping reference/filters and is not cell abundance or a correction factor for MAG/KO matrices.
 - Gene counts are paired-fragment counts. Overlapping genes and multiple KO assignments receive fractional contributions; these counts are not necessarily integers.
 - TPM uses all counted genes in the catalogue, including genes without KO annotations.
 - DRAM translation tables 11/4 are handled separately and merged by column name.

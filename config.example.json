@@ -28,6 +28,7 @@
   "max_contamination": 10,
   "ani": 0.95,
   "resources": {
+    "recruitment": [8, "8G", "24:00:00"],
     "assembly": [
       32,
       "1T",

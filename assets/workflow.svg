@@ -87,9 +87,9 @@
 <text x="1000.0" y="1801.26" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="27" font-weight="700" fill="#163044">Gene counts / TPM</text>
 <text x="1000.0" y="1836.74" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="23" font-weight="400" fill="#516778">基因坐标与 BAM → 基因丰度</text>
 <rect x="1360" y="1728" width="560" height="125" rx="18" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
-<text x="1640.0" y="1766.4" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="30" font-weight="700" fill="#163044">CoverM</text>
-<text x="1640.0" y="1802.24" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="23" font-weight="400" fill="#516778">MAG abundance and coverage</text>
-<text x="1640.0" y="1838.12" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778">MAG 丰度与覆盖度</text>
+<text x="1640.0" y="1766.9" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="30" font-weight="700" fill="#163044">CoverM + samtools</text>
+<text x="1640.0" y="1801.86" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="22" font-weight="400" fill="#516778">MAG abundance + read recruitment QC</text>
+<text x="1640.0" y="1837.62" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778">MAG 丰度与 reads 招募比例</text>
 <polyline points="360,1856 360,1900" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
 <polyline points="1000,1856 1000,1900" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
 <polyline points="1640,1856 1640,1900" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
@@ -102,9 +102,10 @@
 <text x="1000.0" y="1986.12" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778">样本 × 基因 / KO 丰度表</text>
 <text x="1000.0" y="2019.48" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="21" font-weight="400" fill="#516778">Retain MAG contributions / 保留 MAG 来源</text>
 <rect x="1360" y="1905" width="560" height="137" rx="18" fill="#eaf7ef" stroke="#a8d4b5" stroke-width="2"/>
-<text x="1640.0" y="1949.14" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="28" font-weight="700" fill="#163044">Sample × MAG matrices</text>
-<text x="1640.0" y="1985.62" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778">样本 × MAG 丰度表</text>
-<text x="1640.0" y="2019.86" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="22" font-weight="400" fill="#516778">Depth and breadth / 覆盖深度与广度</text>
+<text x="1640.0" y="1936.14" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="28" font-weight="700" fill="#163044">Sample × MAG matrices</text>
+<text x="1640.0" y="1972.62" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778">样本 × MAG 丰度表</text>
+<text x="1640.0" y="2003.34" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="18" font-weight="400" fill="#516778">Depth and breadth / 覆盖深度与广度</text>
+<text x="1640.0" y="2033.34" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="18" font-weight="400" fill="#516778">Clean-read recruitment (%) / reads 招募比例</text>
 <rect x="80" y="2100" width="1840" height="148" rx="18" fill="#f8fafc" stroke="#d8e1e8" stroke-width="2"/>
 <text x="1000" y="2145.64" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="28" font-weight="700" fill="#163044"> Optional downstream analyses / 可选扩展分析 </text>
 <text x="1000" y="2192.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="25" font-weight="400" fill="#163044">Competition and defense · Carbon use · Spatial colonization · Growth potential</text>
