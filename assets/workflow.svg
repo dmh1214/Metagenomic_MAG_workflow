@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="2410" viewBox="0 0 2000 2410">
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#64748b"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="1000" y="74.72" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="44" font-weight="700" fill="#163044">Clean reads to MAG annotation and abundance tables</text>
+<text x="1000" y="127.28" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="31" font-weight="400" fill="#163044">从 Clean reads 到 MAG 注释与丰度表</text>
+<text x="1000" y="175.12" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778"> Run either route independently with shared downstream code / 两条路线独立运行，共用下游代码 </text>
+<rect x="70" y="215" width="900" height="692" rx="24" fill="#f1f7ff" stroke="#bfd5ef" stroke-width="2"/>
+<rect x="1030" y="215" width="900" height="692" rx="24" fill="#effaf6" stroke="#b9dfd1" stroke-width="2"/>
+<text x="520" y="268.04" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="33" font-weight="700" fill="#225989">A  Joint coassembly of all samples</text>
+<text x="520" y="312.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="25" font-weight="400" fill="#225989">全部样本共同组装</text>
+<text x="1480" y="268.04" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="33" font-weight="700" fill="#17694e">B  Separate coassemblies by sample group</text>
+<text x="1480" y="312.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="25" font-weight="400" fill="#17694e">按组分别共同组装</text>
+<rect x="105" y="344" width="830" height="91" rx="18" fill="white" stroke="#bfd5ef" stroke-width="2"/>
+<text x="520.0" y="382.14" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="28" font-weight="700" fill="#163044">Clean paired-end reads</text>
+<text x="520.0" y="418.62" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778">质控后的双端 reads</text>
+<rect x="1065" y="344" width="830" height="91" rx="18" fill="white" stroke="#b9dfd1" stroke-width="2"/>
+<text x="1480.0" y="382.14" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="28" font-weight="700" fill="#163044">Clean paired-end reads + assembly groups</text>
+<text x="1480.0" y="418.62" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778">质控后的双端 reads + 组装分组</text>
+<polyline points="520,437 520,450" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<polyline points="1480,437 1480,450" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="105" y="455" width="830" height="91" rx="18" fill="white" stroke="#bfd5ef" stroke-width="2"/>
+<text x="520.0" y="493.14" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="28" font-weight="700" fill="#163044">One coassembly for all samples</text>
+<text x="520.0" y="529.62" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778">MEGAHIT：一份共同组装</text>
+<rect x="1065" y="455" width="830" height="91" rx="18" fill="white" stroke="#b9dfd1" stroke-width="2"/>
+<text x="1480.0" y="493.14" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="28" font-weight="700" fill="#163044">One coassembly per group</text>
+<text x="1480.0" y="529.62" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778">MEGAHIT：每组一份共同组装</text>
+<polyline points="520,548 520,561" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<polyline points="1480,548 1480,561" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="105" y="566" width="830" height="91" rx="18" fill="white" stroke="#bfd5ef" stroke-width="2"/>
+<text x="520.0" y="604.14" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="28" font-weight="700" fill="#163044">Map each sample to the shared assembly</text>
+<text x="520.0" y="640.62" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778">每个样本回贴同一份组装</text>
+<rect x="1065" y="566" width="830" height="91" rx="18" fill="white" stroke="#b9dfd1" stroke-width="2"/>
+<text x="1480.0" y="604.14" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="28" font-weight="700" fill="#163044">Map all samples to each group assembly</text>
+<text x="1480.0" y="640.62" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778">全部样本分别回贴各组组装</text>
+<polyline points="520,659 520,672" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<polyline points="1480,659 1480,672" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="105" y="677" width="830" height="91" rx="18" fill="white" stroke="#bfd5ef" stroke-width="2"/>
+<text x="520.0" y="715.64" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="28" font-weight="700" fill="#163044">MetaBAT2 · SemiBin2 · VAMB</text>
+<text x="520.0" y="751.24" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="23" font-weight="400" fill="#516778">Three independent binners / 三种方法分箱</text>
+<rect x="1065" y="677" width="830" height="91" rx="18" fill="white" stroke="#b9dfd1" stroke-width="2"/>
+<text x="1480.0" y="715.14" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="28" font-weight="700" fill="#163044">Bin each assembly independently</text>
+<text x="1480.0" y="751.62" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778">每组 MetaBAT2 · SemiBin2 · VAMB</text>
+<polyline points="520,770 520,783" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<polyline points="1480,770 1480,783" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="105" y="788" width="830" height="91" rx="18" fill="white" stroke="#bfd5ef" stroke-width="2"/>
+<text x="520.0" y="826.14" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="28" font-weight="700" fill="#163044">Consolidate bins within the assembly</text>
+<text x="520.0" y="862.62" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778">DAS Tool 整合分箱</text>
+<rect x="1065" y="788" width="830" height="91" rx="18" fill="white" stroke="#b9dfd1" stroke-width="2"/>
+<text x="1480.0" y="826.14" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="28" font-weight="700" fill="#163044">Within-group refinement → pool and namespace MAGs</text>
+<text x="1480.0" y="862.62" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778">组内 DAS Tool → 汇集并统一命名</text>
+<polyline points="520,882 520,945 1000,945 1000,974" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<polyline points="1480,882 1480,945 1000,945" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="330" y="980" width="1340" height="100" rx="18" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+<text x="1000.0" y="1022.64" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="28" font-weight="700" fill="#163044">Quality assessment and filtering: completeness ≥50%, contamination ≤10%</text>
+<text x="1000.0" y="1059.12" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778">CheckM2：质量评估与筛选</text>
+<polyline points="1000,1083 1000,1115" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="330" y="1120" width="1340" height="124" rx="18" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+<text x="1000.0" y="1157.64" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="28" font-weight="700" fill="#163044">Dereplication and representative selection; default 95% ANI</text>
+<text x="1000.0" y="1194.12" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778">dRep 去冗余，保留代表 MAG</text>
+<text x="1000.0" y="1228.36" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="22" font-weight="400" fill="#516778">Optional in A; across-group integration in B / 路线 A 可选；路线 B 跨组整合</text>
+<polyline points="1000,1247 1000,1263" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="420" y="1268" width="1160" height="88" rx="18" fill="#e8effb" stroke="#9db7dc" stroke-width="2"/>
+<text x="1000.0" y="1304.64" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="28" font-weight="700" fill="#163044">Final MAG catalogue + provenance</text>
+<text x="1000.0" y="1341.12" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778">最终 MAG 目录 + 来源追踪</text>
+<polyline points="1000,1359 1000,1390 520,1390 520,1425" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<polyline points="1000,1390 1480,1390 1480,1425" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="105" y="1430" width="830" height="135" rx="18" fill="#f1f7ff" stroke="#bfd5ef" stroke-width="2"/>
+<text x="520.0" y="1472.64" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="28" font-weight="700" fill="#163044">Taxonomy and gene annotation</text>
+<text x="520.0" y="1509.12" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778">分类与基因功能注释</text>
+<text x="520.0" y="1544.24" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="23" font-weight="400" fill="#516778">GTDB-Tk · DRAM annotate (translation tables 11 / 4)</text>
+<rect x="1065" y="1430" width="830" height="135" rx="18" fill="#effaf6" stroke="#b9dfd1" stroke-width="2"/>
+<text x="1480.0" y="1472.64" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="28" font-weight="700" fill="#163044">Map all samples to the same final catalogue</text>
+<text x="1480.0" y="1509.12" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778">所有样本 → 同一最终 MAG 参考</text>
+<text x="1480.0" y="1544.24" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="23" font-weight="400" fill="#516778">Bowtie2 + samtools → sample-specific BAMs</text>
+<text x="1000" y="1611.24" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="23" font-weight="400" fill="#516778">A: reuse compatible BAMs  /  B: remap to the unified reference</text>
+<text x="1000" y="1644.36" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="22" font-weight="400" fill="#516778">A：参考匹配时可复用 BAM  /  B：统一参考后重新回贴</text>
+<polyline points="520,1568 520,1690 360,1690 360,1723" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<polyline points="520,1690 1000,1690 1000,1723" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<polyline points="1480,1568 1480,1668 1020,1668 1020,1723" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<polyline points="1480,1668 1640,1668 1640,1723" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="80" y="1728" width="560" height="125" rx="18" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+<text x="360.0" y="1766.4" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="30" font-weight="700" fill="#163044">DRAM distill</text>
+<text x="360.0" y="1802.24" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="23" font-weight="400" fill="#516778">Metabolic summaries</text>
+<text x="360.0" y="1838.12" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778">代谢功能汇总</text>
+<rect x="720" y="1728" width="560" height="125" rx="18" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+<text x="1000.0" y="1762.62" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="700" fill="#163044">Gene coordinates + BAM → featureCounts</text>
+<text x="1000.0" y="1801.26" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="27" font-weight="700" fill="#163044">Gene counts / TPM</text>
+<text x="1000.0" y="1836.74" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="23" font-weight="400" fill="#516778">基因坐标与 BAM → 基因丰度</text>
+<rect x="1360" y="1728" width="560" height="125" rx="18" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+<text x="1640.0" y="1766.4" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="30" font-weight="700" fill="#163044">CoverM</text>
+<text x="1640.0" y="1802.24" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="23" font-weight="400" fill="#516778">MAG abundance and coverage</text>
+<text x="1640.0" y="1838.12" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778">MAG 丰度与覆盖度</text>
+<polyline points="360,1856 360,1900" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<polyline points="1000,1856 1000,1900" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<polyline points="1640,1856 1640,1900" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="80" y="1905" width="560" height="137" rx="18" fill="#edf6fb" stroke="#a9c9dd" stroke-width="2"/>
+<text x="360.0" y="1949.14" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="28" font-weight="700" fill="#163044">MAG metabolism and taxonomy</text>
+<text x="360.0" y="1985.62" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778">MAG 代谢与分类信息</text>
+<text x="360.0" y="2019.86" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="22" font-weight="400" fill="#516778">Genome functional profiles / 功能概览</text>
+<rect x="720" y="1905" width="560" height="137" rx="18" fill="#eaf7ef" stroke="#a8d4b5" stroke-width="2"/>
+<text x="1000.0" y="1949.64" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="28" font-weight="700" fill="#163044">Sample × gene / KO matrices</text>
+<text x="1000.0" y="1986.12" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778">样本 × 基因 / KO 丰度表</text>
+<text x="1000.0" y="2019.48" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="21" font-weight="400" fill="#516778">Retain MAG contributions / 保留 MAG 来源</text>
+<rect x="1360" y="1905" width="560" height="137" rx="18" fill="#eaf7ef" stroke="#a8d4b5" stroke-width="2"/>
+<text x="1640.0" y="1949.14" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="28" font-weight="700" fill="#163044">Sample × MAG matrices</text>
+<text x="1640.0" y="1985.62" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="400" fill="#516778">样本 × MAG 丰度表</text>
+<text x="1640.0" y="2019.86" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="22" font-weight="400" fill="#516778">Depth and breadth / 覆盖深度与广度</text>
+<rect x="80" y="2100" width="1840" height="148" rx="18" fill="#f8fafc" stroke="#d8e1e8" stroke-width="2"/>
+<text x="1000" y="2145.64" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="28" font-weight="700" fill="#163044"> Optional downstream analyses / 可选扩展分析 </text>
+<text x="1000" y="2192.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="25" font-weight="400" fill="#163044">Competition and defense · Carbon use · Spatial colonization · Growth potential</text>
+<text x="1000" y="2230.24" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="23" font-weight="400" fill="#516778">竞争与防御 · 碳源利用 · 空间定殖 · 生长潜力 · antiSMASH / gRodon / IoC</text>
+<text x="1000" y="2313.12" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="24" font-weight="700" fill="#163044">Automation: configuration and manifests → Slurm dependencies → QC → traceable outputs</text>
+<text x="1000" y="2350.36" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="22" font-weight="400" fill="#516778">自动化：配置与输入清单 → Slurm 依赖调度 → 质量检查 → 可追溯结果</text>
+<text x="1000" y="2390.6" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif" font-size="20" font-weight="400" fill="#516778">Functional profiles are restricted to the final MAG catalogue. / 功能范围为最终 MAG 目录</text>
+</svg>

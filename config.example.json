@@ -1,0 +1,82 @@
+{
+  "modules": {
+    "python": "",
+    "megahit": "megahit",
+    "bowtie2": "bowtie2",
+    "samtools": "samtools/1.21",
+    "metabat2": "metabat2",
+    "semibin2": "semibin/2.2.1",
+    "vamb": "vamb",
+    "checkm2": "checkm2",
+    "drep": "drep/3.5.0",
+    "gtdb": "gtdbtk/2.4.1",
+    "dram": "dram/1.5.0",
+    "coverm": "coverm/0.7.0",
+    "subread": "subread/2.0.6"
+  },
+  "conda_sh": "$HOME/miniconda3/etc/profile.d/conda.sh",
+  "dastool_env": "dastool_env",
+  "checkm2_db": "/path/to/CheckM2_database/uniref100.KO.1.dmnd",
+  "gtdb_db": "/path/to/gtdb/release226",
+  "dram_config": "$HOME/DRAM_CONFIG",
+  "partition": "",
+  "qos": "",
+  "account": "",
+  "map_concurrency": 4,
+  "bin_concurrency": 3,
+  "min_completeness": 50,
+  "max_contamination": 10,
+  "ani": 0.95,
+  "resources": {
+    "assembly": [
+      32,
+      "1T",
+      "200:00:00"
+    ],
+    "index": [
+      16,
+      "128G",
+      "48:00:00"
+    ],
+    "map": [
+      16,
+      "64G",
+      "80:00:00"
+    ],
+    "bin": [
+      16,
+      "512G",
+      "120:00:00"
+    ],
+    "dastool": [
+      32,
+      "200G",
+      "80:00:00"
+    ],
+    "catalog": [
+      16,
+      "128G",
+      "72:00:00"
+    ],
+    "taxonomy": [
+      16,
+      "256G",
+      "120:00:00"
+    ],
+    "dram": [
+      32,
+      "512G",
+      "120:00:00"
+    ],
+    "distill": [
+      8,
+      "64G",
+      "24:00:00"
+    ],
+    "tables": [
+      16,
+      "128G",
+      "120:00:00"
+    ]
+  }
+}
